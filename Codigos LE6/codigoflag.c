@@ -17,10 +17,10 @@ union flag {
 void mostrarBits(union flag bandera);
 
 int main() {
-    union flag bandera;
+    union flag *bandera;
     
     printf("Ingrese un valor (0-255): ");
-    scanf("%d", &bandera.valor);
+    scanf("%d", &bandera->valor);
     
     mostrarBits(bandera);
     

@@ -5,7 +5,6 @@
 #define OPCION3 '3'
 #define EXISTEJUGADOR 1
 
-
 typedef struct{
     int minutosJugados;
     int goles;
