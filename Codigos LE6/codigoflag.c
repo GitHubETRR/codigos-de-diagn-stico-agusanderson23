@@ -14,11 +14,7 @@ union flag {
     char valor;
 };
 
-void mostrarBits(union flag bandera) {
-    printf("Estado de los bits: %d%d%d%d%d%d%d%d\n",
-           bandera.bits.bit7, bandera.bits.bit6, bandera.bits.bit5, bandera.bits.bit4,
-           bandera.bits.bit3, bandera.bits.bit2, bandera.bits.bit1, bandera.bits.bit0);
-}
+void mostrarBits(union flag bandera);
 
 int main() {
     union flag bandera;
@@ -29,4 +25,9 @@ int main() {
     mostrarBits(bandera);
     
     return 0;
+}
+void mostrarBits(union flag bandera) {
+    printf("Estado de los bits: %d%d%d%d%d%d%d%d\n",
+           bandera.bits.bit7, bandera.bits.bit6, bandera.bits.bit5, bandera.bits.bit4,
+           bandera.bits.bit3, bandera.bits.bit2, bandera.bits.bit1, bandera.bits.bit0);
 }
