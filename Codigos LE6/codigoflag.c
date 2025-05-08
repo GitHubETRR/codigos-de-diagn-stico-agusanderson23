@@ -10,24 +10,26 @@ union flag {
         unsigned int bit5 : 1;
         unsigned int bit6 : 1;
         unsigned int bit7 : 1;
-    } bits;
+    }bits;
     char valor;
 };
 
-void mostrarBits(union flag bandera);
+void mostrarBits(union flag *ptr);
 
 int main() {
-    union flag *bandera;
-    
+    union flag bandera;
+    union flag *ptr = &bandera; 
+
     printf("Ingrese un valor (0-255): ");
-    scanf("%d", &bandera->valor);
-    
-    mostrarBits(bandera);
-    
+    scanf("%d", &ptr->valor);  
+
+    mostrarBits(ptr);
+
     return 0;
 }
-void mostrarBits(union flag bandera) {
+
+void mostrarBits(union flag *ptr) {
     printf("Estado de los bits: %d%d%d%d%d%d%d%d\n",
-           bandera.bits.bit7, bandera.bits.bit6, bandera.bits.bit5, bandera.bits.bit4,
-           bandera.bits.bit3, bandera.bits.bit2, bandera.bits.bit1, bandera.bits.bit0);
+           ptr->bits.bit7, ptr->bits.bit6, ptr->bits.bit5, ptr->bits.bit4,
+           ptr->bits.bit3, ptr->bits.bit2, ptr->bits.bit1, ptr->bits.bit0);
 }
