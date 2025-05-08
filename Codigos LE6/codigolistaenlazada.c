@@ -20,7 +20,7 @@ int main(){
     menu(listaPeliculas);
     return 0;
 }
-peliculas_t* crearPelicula{
+peliculas_t* crearPelicula(){
     peliculas_t *nuevaPeli = (peliculas_t *)malloc(sizeof(peliculas_t));
     if(nuevaPeli == NULL){
         printf("Error al asignar memoria");
