@@ -52,7 +52,7 @@ void menu(){
             default:
                 printf("Opción no valida, intente nuevamente\n");
         }
-        while (getchar() != '\n'); //Limpiar buffer
+        while (getchar() != '\n'); 
     } while (opcion != OPCION3);
 }
 futbolista_t crearFutbolista(){
@@ -70,7 +70,7 @@ futbolista_t crearFutbolista(){
 }
 float calcularPromedio(futbolista_t jugador){
     float promedio;
-    if (jugador.minutosJugados == 0){ // Evitar division por cero
+    if (jugador.minutosJugados == 0){
         return 0;
     }
     promedio = ((float)(jugador.goles + jugador.asistencias)) / jugador.minutosJugados;
