@@ -61,7 +61,7 @@ void cantidadPeliculas(peliculas_t *lista) {
 }
 
 void liberarMemoria(peliculas_t *lista) {
-    peliculas_t *aux;
+    peliculas_t *aux = NULL;
     while (lista != NULL) {
         aux = lista;
         lista = lista->next;
