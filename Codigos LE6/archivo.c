@@ -1,31 +1,55 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define VALOR_ERROR -1
-#define MAX_CHAR 100
+#define MAX_LINEA 100
+#define MAX_NOMBRE 100
 
-void llenarArchivo();
-void leerArchivo();
+void llenarArchivo(const char *ptrArchivo);
+void leerArchivo(const char *ptrArchivo);
 
 int main(){
-    char linea1[MAX_CHAR];
-    char linea2[MAX_CHAR];
+    char nombredelArchivo[MAX_NOMBRE];
+    strcpy(nombredelArchivo, "texto.txt");
+    
+    llenarArchivo(nombredelArchivo);
+    leerArchivo(nombredelArchivo);
 }
 
-void llenarArchivo(){
+void llenarArchivo(const char *ptrArchivo){
 
-    FILE *archivo
-    archivo=fopen("datos.txt", "w");
+    FILE *archivo = fopen(ptrArchivo, "w");
     if(archivo==NULL){
         printf("No se pudo abrir el archivo \n");
         exit(VALOR_ERROR);
     }else{
-        printf("Ingrese lo que desea guardar en la linea 1 del archivo \n");
-        scanf("%s", linea1);
-        printf("Ingrese lo que desea guardar en la linea 2 del archivo\n");
-        scanf("%s", linea2);
+        int cantidad;
+        printf("¿Cuantas lineas desea ingresar? : ");
+        scanf("%d", &cantidad);
+        getchar();
         
-        fprintf(archivo, "%s \n %s", linea1, linea2);
-        
+        char linea[MAX_LINEA];
+        for(int i = 0; i < cantidad; i++){
+            printf("Linea %d : ", i + 1);
+            fgets(linea, sizeof(linea), stdin);
+            fputs(linea, archivo);
+        }
+        fclose(archivo);
+    }
+}
+
+void leerArchivo(const char *ptrArchivo){
+    FILE *archivo = fopen(ptrArchivo, "r");
+    if(archivo==NULL){
+        printf("Error al abrir el archivo");
+        exit(VALOR_ERROR);
+    }else{
+        char linea[MAX_LINEA];
+        printf("Contenido del archivo: \n");
+        while(fgets(linea, sizeof(linea), archivo)){
+            printf("%s", linea);
+        }
+        fclose(archivo);
     }
 }
