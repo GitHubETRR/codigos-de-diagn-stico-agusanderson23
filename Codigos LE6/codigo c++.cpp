@@ -41,8 +41,9 @@ void persona::cargarDatos() {
     string inputNombre;
     int inputEdad;
 
+    cin.ignore();
     cout << "Ingrese el nombre y apellido de la persona: ";
-    cin >> inputNombre;
+    getline(cin, inputNombre);
     cout << "Ingrese la edad de la persona: ";
     cin >> inputEdad;
 
