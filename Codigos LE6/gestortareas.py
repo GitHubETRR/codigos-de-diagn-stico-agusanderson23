@@ -1,41 +1,52 @@
+from enum import Enum
+from datetime import datetime
+
 tareas = []
+
+class menu(Enum):
+    AGREGAR = "1"
+    VER = "2"
+    SALIR = "3"
 
 def mostrarMenu():
     print("\n--- MENU DE TAREAS ---")
-    print("1. Agregar tarea")
-    print("2. Ver tareas")
-    print("3. Salir")
+    print(f"{menu.AGREGAR.value}. Agregar tarea")
+    print(f"{menu.VER.value}. Ver tareas")
+    print(f"{menu.SALIR.value}. Salir")
     
 def agregarTarea():
-    tarea = input("Escribi la tarea que quieras agregar: ")
-    tareas.append(tarea)
-    print("Tarea agregada correctamente")
+    tarea = input("Escribí la tarea que quieras agregar: ")
+    fecha = datetime.now().strftime("%d/%m/%Y %H:%M")
+    tareas.append(f"{tarea} (agregada el {fecha})")
+    print("Tarea agregada correctamente.")
     
 def verTareas():
     if not tareas:
-        print("No hay tareas agregadas")
+        print("No hay tareas agregadas.")
     else:
-        print("Tareas pendienres:")
+        print("Tareas pendientes:")
         for t in tareas:
-            print(t)
-        
+            print("-", t)
+            
+def eliminarTarea():
+    if not tareas:
+        print("No hay tareas pendientes")
+        return
+
+    verTareas()
+    
+
 while True:
-    AGREGARTAREA = "1"
-    VERTAREAS = "2"
-    SALIR = "3"
-    
     mostrarMenu()
-    opcion = input("Elegi una opcion")
-    
-    if opcion == "1":
-        agregarTarea()
-        
-    elif opcion == "2":
-        verTareas()
-    
-    elif opcion == "3":
-        print("Saliendo del programa...")
-        break
-        
-    else:
-        print("Opción invalida, intente nuevamente")
+    opcion = input("Elegí una opción: ")
+
+    match opcion:
+        case menu.AGREGAR.value:
+            agregarTarea()
+        case menu.VER.value:
+            verTareas()
+        case menu.SALIR.value:
+            print("Saliendo del programa...")
+            break
+        case _:
+            print("Opción inválida, intentá nuevamente.")
