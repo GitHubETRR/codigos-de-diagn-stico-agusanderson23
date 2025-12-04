@@ -31,11 +31,11 @@ class Perro : public Animal {
 public:
     Perro(string& nom) : Animal(nom) {}
 
-    void hablar() override {
+    void hablar() {
         cout << nombre << " dice: ¡Guau!" << endl;
     }
 
-    string getTipo() override {
+    string getTipo() {
         return "Perro";
     }
 };
@@ -44,11 +44,11 @@ class Gato : public Animal {
 public:
     Gato(string& nom) : Animal(nom) {}
 
-    void hablar() override {
+    void hablar(){
         cout << nombre << " dice: ¡Miau!" << endl;
     }
 
-    string getTipo() override {
+    string getTipo(){
         return "Gato";
     }
 };
