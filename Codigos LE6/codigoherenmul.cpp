@@ -19,7 +19,7 @@ public:
     virtual ~Animal() {}
 };
 
-class Mascota : public virtual SerVivo {
+class Mascota : public SerVivo {
 public:
     virtual void mostrarCarino() {
         cout << "La mascota muestra cariño" << endl;
@@ -29,30 +29,30 @@ public:
 
 class Perro : public Animal, public Mascota {
 public:
-    void hacerSonido() override {
+    void hacerSonido(){
         cout << "El perro dice Guau" << endl;
     }
 
-    void mostrarCarino() override {
+    void mostrarCarino(){
         cout << "El perro mueve la cola" << endl;
     }
 
-    void existir() override {
+    void existir(){
         cout << "El perro vive feliz" << endl;
     }
 };
 
 class Gato : public Animal, public Mascota {
 public:
-    void hacerSonido() override {
+    void hacerSonido(){
         cout << "El gato dice Mia!" << endl;
     }
 
-    void mostrarCarino() override {
+    void mostrarCarino(){
         cout << "El gato se frota contra tu pierna" << endl;
     }
 
-    void existir() override {
+    void existir() {
         cout << "El gato vive tranquilo" << endl;
     }
 };
