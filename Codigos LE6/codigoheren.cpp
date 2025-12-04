@@ -11,7 +11,7 @@ public:
 
 class Perro : public Animal {
 public:
-    void hacerSonido() override {
+    void hacerSonido( {
         cout << "El perro dice: ¡Guau!" << endl;
     }
 };
@@ -19,7 +19,7 @@ public:
 
 class Gato : public Animal {
 public:
-    void hacerSonido() override {
+    void hacerSonido(){
         cout << "El gato dice: ¡Miau!" << endl;
     }
 };
